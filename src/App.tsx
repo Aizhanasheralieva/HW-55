@@ -5,51 +5,46 @@ import baconImage from "./assets/bacon.png";
 import lettuceImage from "./assets/lettuce.png";
 import cheeseImage from "./assets/cheese.png";
 
-interface Ingredient {
+export interface Ingredient {
   name: string;
   price: number;
   image: string;
 }
 
+interface chosenIngredient {
+  name: string,
+  count: number,
+}
+
 const App = () => {
-//   const [ingredients, setIngredients] = useState([
-//
-//     {name: 'Meat': count: 0},
-//
-//   {name: 'Cheese': count: 0},
-//
-// ...
-//
-// ]};
-//   обычный map или forEach подойдет для поиска чтобы увеличивать count
+  const [ingredients, setIngredients] = useState<chosenIngredient[]>([
+    {name: "Meat", count: 0},
+    {name: "Cheese", count: 0},
+    {name: "Bacon", count: 0},
+    {name: "Lettuce", count: 0},
+  ]);
+
+  const addIngredientToArray = (ingredientName: string) => {
+    setIngredients((prevIngredients) => {
+      return prevIngredients.map((ingredient) => {
+        if (ingredient.name === ingredientName) {
+          return {...ingredient, count: ingredient.count + 1}
+        }
+        return ingredient;
+      });
+    });
+  };
+
+//   обычный map или forEach подойдет для поиска чтобы увеличивать count ("счетчик" данного ингредиента.):
 
 
-
-
-
-
-const INGREDIENTS: Ingredient[{name: string, price: number, image: string}] = [
+  const INGREDIENTS: Ingredient[{ name: string, price: number, image: string }] = [
 
     {name: "meat", price: 80, image: meatImage},
     {name: "bacon", price: 60, image: baconImage},
     {name: "lettuce", price: 10, image: lettuceImage},
     {name: "cheese", price: 50, image: cheeseImage},
   ];
-
-  const object = {
-    meat: 0,
-    lettuce: 0,
-    bacon: 0,
-    cheese: 0,
-    // если у меня массив сделать по подсчету какую-нибудь map или цикл для объектов, чтобы определить на что я именно нажала
-  };
-
-  const getIngredientName = (ingredientName: string) => {
-    console.log(ingredientName)
-    object[ingredientName] ++;
-    console.log(object);
-  };
-
 
   return (
     <>
@@ -59,20 +54,20 @@ const INGREDIENTS: Ingredient[{name: string, price: number, image: string}] = [
             <div className="Seeds1"></div>
             <div className="Seeds2"></div>
           </div>
-          {/*<div className="Salad"></div>*/}
-          {/*<div className="Cheese"></div>*/}
-          {/*<div className="Meat"></div>*/}
           <div className="BreadBottom"></div>
         </div>
       </div>
 
       {INGREDIENTS.map(ingredient => (
-        <button style={{background: "none", border: "none"}} onClick={() => getIngredientName(ingredient.name)} key={ingredient.name} type="button"><img width={50} src={ingredient.image} alt={ingredient.name}/>
+        <button style={{background: "none", border: "none"}}
+          key={ingredient.name}
+          onAdd={addIngredientToArray}
+          type="button">
         </button>
       ))}
 
     </>
-  );
+  )
 };
 
 export default App;
