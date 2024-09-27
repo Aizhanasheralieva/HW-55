@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -138,7 +141,7 @@
   border-radius: 20px;
 }
 
-.Salad {
+.Lettuce {
   width: 85%;
   height: 7%;
   margin: 2% auto;
