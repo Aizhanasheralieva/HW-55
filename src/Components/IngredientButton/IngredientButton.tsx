@@ -12,7 +12,8 @@ const object = {
   lettuce: 0,
   bacon: 0,
   cheese: 0,
-  // если у меня массив сделать по подсчету какую-нибудь map или цикл для объектов, чтобы определить на что я именно нажала
+  redOnion: 0,
+  pickles: 0,
 };
 
 const getIngredientName = (ingredientName: string) => {
@@ -23,7 +24,7 @@ const getIngredientName = (ingredientName: string) => {
 
 const IngredientButton: React.FC<Props> = ({ingredient, onAdd}) => {
   return (
-    <div className="ingredient-button">
+    <div>
       <img width={60} src={ingredient.image} alt={ingredient.name}
         onClick={() => getIngredientName(ingredient.name)}
       />

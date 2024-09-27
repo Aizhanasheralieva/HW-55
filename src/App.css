@@ -7,6 +7,13 @@
   justify-content: space-between;
   align-items: center;
 }
+.generalBlock {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+}
 
 .logo {
   height: 6em;
@@ -153,6 +160,19 @@
   width: 80%;
   height: 3%;
   background: linear-gradient(#bf3813, #c45e38);
+  margin: 2% auto;
+}
+.RedOnion {
+  width: 90%;
+  height: 4.5%;
+  margin: 2% auto;
+  background: linear-gradient(#be5b5b, #de8484);
+  border-radius: 20px;
+}
+.Pickles {
+  width: 80%;
+  height: 3%;
+  background: linear-gradient(#3c622e, #2e441b);
   margin: 2% auto;
 }
 
