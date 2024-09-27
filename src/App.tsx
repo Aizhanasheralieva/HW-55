@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./App.css";
 import meatImage from "./assets/meat.png";
 import baconImage from "./assets/bacon.png";
@@ -29,18 +29,25 @@ const App = () => {
     setIngredients((prevIngredients) =>
       prevIngredients.map((ingredient) =>
         ingredient.name === ingredientName
-          ? { ...ingredient, count: ingredient.count + 1 }
+          ? {...ingredient, count: ingredient.count + 1}
           : ingredient
       )
     );
   };
 
   const INGREDIENTS: Ingredient[object] = [
-    { name: "Meat", price: 80, image: meatImage },
-    { name: "Bacon", price: 60, image: baconImage },
-    { name: "Lettuce", price: 10, image: lettuceImage },
-    { name: "Cheese", price: 50, image: cheeseImage },
+    {name: "Meat", price: 80, image: meatImage},
+    {name: "Bacon", price: 60, image: baconImage},
+    {name: "Lettuce", price: 10, image: lettuceImage},
+    {name: "Cheese", price: 50, image: cheeseImage},
   ];
+
+  const countMatchedIngredient = (ingredientName: string) => {
+    const matchedIngredient = ingredients.find((ingredient) => ingredient.name === ingredientName
+    );
+    return matchedIngredient ? matchedIngredient.count : 0;
+  };
+
 
   return (
     <>
@@ -49,10 +56,12 @@ const App = () => {
           <button
             key={ingredient.name}
             onClick={() => addIngredientToArray(ingredient.name)}
-            style={{ background: "none", border: "none" }}
+            style={{background: "none", border: "none"}}
           >
-            <img src={ingredient.image} alt={ingredient.name} width={50} />
-            <p>{ingredient.name}</p>
+            <img src={ingredient.image} alt={ingredient.name} width={50}/>
+            <p>
+              {ingredient.name} {countMatchedIngredient(ingredient.name)} pcs
+            </p>
           </button>
         ))}
       </div>
