@@ -206,3 +206,35 @@
     height: 200px;
   }
 }
+.ingredient-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin: 6px;
+}
+
+.remove-button {
+  margin-top: 5px;
+  background-color: #640404;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+.burger-builder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-calculator {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: bold;
+}
